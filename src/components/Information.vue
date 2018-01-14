@@ -1,0 +1,42 @@
+<template>
+  <div class="information">
+    <Block content="aaa" />
+    <Block content="aaa" />
+    <Block content="aaa" />
+  </div>
+</template>
+
+<script>
+import Vue from "vue";
+import informationData from "../mock/informationData.js";
+import axios from "axios";
+Vue.prototype.$http = axios;
+import Block from "./InformationBlock/index";
+export default {
+  name: "Information",
+  components: {
+    Block
+  },
+  data() {
+    return {};
+  },
+  created() {
+    // console.log('created'+JSON.stringify(informationData) );
+    this.$http
+      .get("http://operate.ptrcipo.com/news/?page=0&size=4")
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+.information {
+
+}
+</style>
