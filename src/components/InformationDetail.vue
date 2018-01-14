@@ -1,21 +1,19 @@
 <template>
-  <div class="bar">
-    <router-link to="/informationdetail/1">查看原文</router-link>
-    <div>333</div>
+  <div class="time">
+    <div>2018-01-17</div>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "Bar"
+  name: "Time"
 };
 </script>
 
 <style scoped lang="scss">
-.bar {
-  margin-top: 10px;
+.time {
   height: 50px;
-  border-top:1px solid #e6e6e6;
   display: flex;
   flex-direction: row ;
   justify-content:space-between;

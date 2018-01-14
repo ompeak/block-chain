@@ -1,6 +1,6 @@
 <template>
 <div class="block">
-  <Time class="time" />
+  <Time  />
   <div class="block-container">
     <Content :content="data" />
     <Bar/>

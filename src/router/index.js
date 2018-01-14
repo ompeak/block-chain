@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Information from '@/components/Information'
+import InformationDetail from '@/components/InformationDetail'
 import Home from '@/components/Home'
 import News from '@/components/News'
 import List from '@/components/List'
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'information',
       component: Information
+    },
+    {
+      path: '/informationdetail/:id',
+      name: 'informationdetail',
+      component: InformationDetail
     },
     {
       path: '/news',

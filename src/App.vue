@@ -5,7 +5,7 @@
     </div>
     <div class="nav">
       <router-link to="/" class="active" >资讯</router-link>
-      <router-link to="/app">应用</router-link>
+      <router-link to="/informationdetail/1">应用</router-link>
       <router-link to="/investor">投资人</router-link>
       <router-link to="/navigation">导航</router-link>
       <router-link to="/activity">活动</router-link>
@@ -22,14 +22,10 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  padding: 0;
-  margin: 0;
-}
-#app {
-}
+@import "./css/common.scss";
+
 .header {
-  font-size: 1.5em;
+  font-size: 1rem;
   color: #fff;
   background: #28c9d8;
   height: 3rem;
@@ -52,8 +48,8 @@ body {
 .nav {
   color: #07727c;
   background: #28c9d8;
-  height: 2.5rem;
-  padding: 0 15pt;
+  height: 50px;
+  padding: 0 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -62,8 +58,9 @@ body {
     color: #07727c;
     text-decoration: none;
     cursor: pointer;
+
   }
-  .router-link-active {
+  .router-link-exact-active {
     color: #fff;
   }
 }

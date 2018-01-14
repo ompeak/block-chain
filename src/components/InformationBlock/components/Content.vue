@@ -13,8 +13,7 @@ export default {
 
 <style scoped lang="scss">
 .contents {
-  font-size: 12px;
   color:#666;
-  line-height: 10px;
+  line-height: 1rem;
 }
 </style>
