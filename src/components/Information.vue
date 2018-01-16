@@ -1,8 +1,13 @@
 <template>
   <div class="information">
-    <Block content="aaa" />
-    <Block content="aaa" />
-    <Block content="aaa" />
+    <div class="nav">
+      <Navigation />
+    </div>
+    <div>
+        <Block content="aaa" />
+        <Block content="aaa" />
+        <Block content="aaa" />
+    </div>
   </div>
 </template>
 
@@ -12,9 +17,11 @@ import informationData from "../mock/informationData.js";
 import axios from "axios";
 Vue.prototype.$http = axios;
 import Block from "./InformationBlock/index";
+import Navigation from "./components/Navigation";
 export default {
   name: "Information",
   components: {
+    Navigation,
     Block
   },
   data() {
