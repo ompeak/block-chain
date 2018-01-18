@@ -5,6 +5,7 @@ import InformationDetail from '@/components/InformationDetail'
 import Home from '@/components/Home'
 import News from '@/components/News'
 import List from '@/components/List'
+import Navigation from '@/components/navigation'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/list',
       name: 'List',
       component: List
+    },
+    {
+      path: '/navigation',
+      name: 'Navigation',
+      component: Navigation
     }
   ]
 })
