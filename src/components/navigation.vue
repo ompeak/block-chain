@@ -4,7 +4,7 @@
       <Navigation />
     </div>
     <div>
-        <img src="./../assets/activityBanner.png" alt="">
+        <img src="./../assets/navBanner.png" alt="" style='width:100%'>
         <Block content="aaa" />
     </div>
   </div>

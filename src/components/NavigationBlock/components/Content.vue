@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <br>
+    <!-- <br>
    <section class="contentDetail"> 
      <div class="flex"><span class="fontBlack"><img src="./../../../assets/tradePlat.png" alt="" class='leftImg'>交易平台</span><span class="allPadding totalCount">全部<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></div>
      <div class="detailFirst">
@@ -9,22 +9,46 @@
         <div class="flex"><span>OTC场外交易平台</span><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></div>
         <div class="flex"><span>大陆交易平台</span><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></div>
      </div>
-   </section>
+   </section> -->
       <br>
      <section class="contentDetail"> 
-     <div class="flex"><span class="fontBlack"><img src="./../../../assets/walletTool.png" alt="" class='leftImg '>钱包工具</span><span class="allPadding totalCount">全部<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></div>
+     <div class="flex"><span class="fontBlack"><img src="./../../../assets/walletTool.png" alt="" class='leftImg'>钱包工具</span><span class="allPadding totalCount">全部<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></div>
      <div class="detailFirst">
-      <div class="flex"><span>多币种钱包</span><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></div>
-      <div class="flex"><span>官方单币种钱包</span><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></div>
+      <div class="flex"><span>多币种钱包</span>
+      <router-link to="/WalletList/1"><span class="totalCount">共{{manyWallet}}个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+      </div>
+      <div class="flex"><span>官方单币种钱包</span>
+      <router-link to="/WalletList/2"><span class="totalCount">共{{singleWallet}}个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+      </div>
      </div>
    </section>
   </div>
 </template>
 
 <script>
+import * as axios from "axios";
 export default {
   name: "Content",
-  props: ['content']
+  props: ['content'],
+   data() {
+    return {
+      manyWallet: 0,
+      singleWallet:0
+    };
+  },
+  mounted() {
+    let self = this;
+    let id = this.$route.params.id;
+    axios
+      .get("http://operate.ptrcipo.com/wallet/group/")
+      .then(function(res) {
+        self.manyWallet = res.data.data.a;
+        self.singleWallet = res.data.data.单币种;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 };
 </script>
 
