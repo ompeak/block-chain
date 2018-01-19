@@ -6,6 +6,7 @@ import Home from '@/components/Home'
 import News from '@/components/News'
 import List from '@/components/List'
 import Navigation from '@/components/navigation'
+import Investor from '@/components/Investor'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/navigation',
       name: 'Navigation',
       component: Navigation
+    },
+    {
+      path: '/investor',
+      name: 'Investor',
+      component: Investor
     }
   ]
 })
