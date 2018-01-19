@@ -3,7 +3,7 @@
     <div class="nav">
       <Navigation />
     </div>
-    <div>
+    <div class="list">
         <Block content="aaa" />
         <Block content="aaa" />
         <Block content="aaa" />
@@ -45,5 +45,10 @@ export default {
 <style scoped lang="scss">
 .information {
 
+  .nav{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
 }
 </style>
