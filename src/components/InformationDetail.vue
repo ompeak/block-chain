@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="content">
-    <div>{{content}}</div>
+    <div v-html="content"></div>
   </div>
 
  </div>
@@ -55,25 +55,23 @@ export default {
   },
   mounted() {
     let self = this;
-    console.log('s')
-    console.log(this.$route);
-    // let id = this.$route.query.id;
-    // axios
-    //   .get("http://operate.ptrcipo.com/news/" + id)
-    //   .then(function(res) {
-    //     console.log("res" + JSON.stringify(res));
-    //     let resData = res.data.data;
-    //     self.link = resData.link;
-    //     self.title = resData.title;
-    //     self.content = resData.content;
-    //     self.updatedAt = resData.updatedAt;
-    //     self.author = resData.author;
-    //     self.source = resData.source;
-    //     self.type = resData.type;
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
+    let id = this.$route.params.id;
+    axios
+      .get("http://operate.ptrcipo.com/news/" + id)
+      .then(function(res) {
+        // console.log("res" + JSON.stringify(res));
+        let resData = res.data.data;
+        self.link = resData.link;
+        self.title = resData.title;
+        self.content = resData.content;
+        self.updatedAt = resData.updatedAt;
+        self.author = resData.author;
+        self.source = resData.source;
+        self.type = resData.type;
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 };
 </script>

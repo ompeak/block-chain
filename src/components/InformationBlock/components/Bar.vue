@@ -1,7 +1,6 @@
 <template>
   <div class="bar">
-    <router-link to="/informationdetail/1" >查看原文</router-link>
-    <router-link :to="{ path: '/informationdetail', query: { id: id }}" >查看原文</router-link>
+    <div @click="toBFun">查看详情</div>
     <div></div>
   </div>
 </template>
@@ -10,8 +9,17 @@
 export default {
   name: "Bar",
   props:["id"],
+  data(){
+    return {
+
+    }
+  },
   mounted(){
-    // console.log(this.id)
+  },
+  methods: {
+    toBFun(){
+    this.$router.push({name:'informationdetail',params:{id:this.id,age:22}});
+   }
   }
 };
 </script>
@@ -20,10 +28,10 @@ export default {
 .bar {
   margin-top: 10px;
   height: 50px;
-  border-top:1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
   display: flex;
-  flex-direction: row ;
-  justify-content:space-between;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 </style>
