@@ -1,13 +1,21 @@
 <template>
-  <div class="content">
-    {{content}}
+  <div class="content" v-html="content" >
+
   </div>
 </template>
 
 <script>
 export default {
   name: "Content",
-  props: ['content']
+  props: ['data'],
+  data(){
+    return {
+      content:""
+    }
+  },
+  mounted(){
+    this.content = this.data.content;
+  }
 };
 </script>
 

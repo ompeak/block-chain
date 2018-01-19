@@ -1,13 +1,18 @@
 <template>
   <div class="bar">
-    <router-link to="/informationdetail/1">查看原文</router-link>
-    <div>333</div>
+    <router-link to="/informationdetail/1" >查看原文</router-link>
+    <router-link :to="{ path: '/informationdetail', query: { id: id }}" >查看原文</router-link>
+    <div></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Bar"
+  name: "Bar",
+  props:["id"],
+  mounted(){
+    // console.log(this.id)
+  }
 };
 </script>
 

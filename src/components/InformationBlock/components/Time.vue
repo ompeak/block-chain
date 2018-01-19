@@ -1,13 +1,13 @@
 <template>
   <div class="time">
-    <div>2018-01-17</div>
-
+    <div>{{time}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Time"
+  name: "Time",
+  props: ["time"]
 };
 </script>
 
@@ -15,8 +15,8 @@ export default {
 .time {
   height: 50px;
   display: flex;
-  flex-direction: row ;
-  justify-content:space-between;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 </style>
