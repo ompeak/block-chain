@@ -78,40 +78,39 @@ export default {
 
 <style scoped lang="scss">
 .information-detail {
-  .detail-content{
-padding: 1rem;
-  .title {
-    margin-top: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .typeInfo {
-    display: flex;
-    // justify-content: space-around;
-    align-items: center;
-    .left {
+  .detail-content {
+    padding: 1rem;
+    .title {
+      margin-top: 10px;
+      font-size: 24px;
+      font-weight: bold;
       display: flex;
-      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .typeInfo {
+      display: flex;
+      // justify-content: space-around;
+      align-items: center;
+      .left {
+        display: flex;
+        flex-flow: column;
+      }
+    }
+    .authorInfo {
+      margin-top: 10px;
+      display: flex;
+      // justify-content: space-around;
+      align-items: center;
+
+      .author {
+        margin-left: 10px;
+      }
+    }
+    .content {
+      margin-top: 10px;
+      line-height: 28px;
     }
   }
-  .authorInfo {
-    margin-top: 10px;
-    display: flex;
-    // justify-content: space-around;
-    align-items: center;
-
-    .author {
-      margin-left: 10px;
-    }
-  }
-  .content {
-    margin-top: 10px;
-    line-height: 28px;
-  }
-  }
-
 }
 </style>
