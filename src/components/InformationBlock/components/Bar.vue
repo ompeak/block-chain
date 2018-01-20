@@ -1,13 +1,26 @@
 <template>
   <div class="bar">
-    <router-link to="/informationdetail/1">查看原文</router-link>
-    <div>333</div>
+    <div @click="toDtail">查看原文</div>
+    <div></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Bar"
+  name: "Bar",
+  props: ["id"],
+  data() {
+    return {};
+  },
+  mounted() {},
+  methods: {
+    toDtail() {
+      this.$router.push({
+        name: "informationdetail",
+        params: { id: this.id, age: 22 }
+      });
+    }
+  }
 };
 </script>
 
@@ -15,10 +28,10 @@ export default {
 .bar {
   margin-top: 10px;
   height: 50px;
-  border-top:1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
   display: flex;
-  flex-direction: row ;
-  justify-content:space-between;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 </style>

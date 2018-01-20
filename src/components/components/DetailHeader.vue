@@ -1,18 +1,21 @@
 <template>
   <div class="dtail-header">
     <div class="left" @click="$router.go(-1)">
-      返回
+      <div class="back">
+
+      </div>
     </div>
     <div class="center">
       {{title}}
     </div>
     <div class="right">
-      分享
+
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "DtailHeader",
   props: ["title"]
@@ -26,6 +29,7 @@ export default {
   background: #28c9d8;
   color: #fff;
   font-size: 1rem;
+  font-weight: bold;
 
   padding: 0 1rem;
 
@@ -37,6 +41,13 @@ export default {
 
   .left{
 
+    .back{
+      width: 10px;
+      height: 18px;
+      background-image: url("../../assets/back.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
   }
   .center{
     flex: 1;

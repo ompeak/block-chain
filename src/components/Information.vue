@@ -1,12 +1,8 @@
 <template>
   <div class="information">
-    <div class="nav">
-      <Navigation />
-    </div>
-    <div>
-        <Block content="aaa" />
-        <Block content="aaa" />
-        <Block content="aaa" />
+   <Navigation />
+    <div class="list"  v-for="item in items">
+        <Block :data='item' />
     </div>
   </div>
 </template>
@@ -25,14 +21,17 @@ export default {
     Block
   },
   data() {
-    return {};
+    return {
+      items: []
+    };
   },
   created() {
-    // console.log('created'+JSON.stringify(informationData) );
+    let self = this;
     this.$http
-      .get("http://operate.ptrcipo.com/news/?page=0&size=4")
-      .then(function(response) {
-        console.log(response);
+      .get("http://operate.ptrcipo.com/news")
+      .then(function(res) {
+        let resData = res.data.data;
+        self.items = resData;
       })
       .catch(function(error) {
         console.log(error);
@@ -44,6 +43,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .information {
-
+  .list {
+    padding: 10px;
+  }
 }
 </style>

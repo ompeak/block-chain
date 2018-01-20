@@ -1,9 +1,20 @@
 <template>
 <div class="block">
-  <Time  />
-  <div class="block-container">
-    <Content :content="data" />
-    <Bar/>
+  <Time :time="time"  />
+  <div class="block-container" v-for="item in data">
+    <div class="line-container">
+     <div class="dot"></div>
+      <div class="line">
+      </div>
+    </div>
+    <div class="content-container">
+      <div class="dtime">{{time | formatDate}}</div>
+      <div class="content">
+        <Content :data='item' />
+        <Bar :id='item.id' />
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -12,25 +23,33 @@
 <script>
 import Time from "./components/Time";
 import Content from "./components/Content";
-
+import { formatDate } from "../../js/data.js";
 import Bar from "./components/Bar";
 export default {
   name: "InformationBlock",
-  props: ["content"],
+  props: ["data"],
   components: {
     Time,
     Content,
-
     Bar
   },
   data() {
     return {
-      data: "hells"
+      time: 1469281964000
     };
   },
-  created() {
-    this.data =
-      "sadfkjsadfjlsakdjflaskjasdlkjfasldkjflasdkjfa受打击就爱上看到垃圾撒看来大家烧录卡打飞机死的快辣椒粉撒款到即发立刻就卡就是大家空间空间空间空间空间了；就就空间卡拉胶空间；九块九立刻就   离开接口了解立刻就卡拉胶 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii死了大姐夫空间啊水电费空间上打开放假阿斯达克放假啊水电费健康框架唉上课的发几块就看了九块九立刻就立刻就立刻就   接口了解 lsdfkjjsadf ksajdf ksdjfa  jk开始打减肥卡撒打飞机就aaaaaaaaaaaaaaaaaa";
+  mounted() {
+    // console.log(JSON.stringify(this.data));
+    // console.log(this.data.length)
+    // console.log(JSON.stringify(this.data[0]))
+    this.time = this.data[0].createdAt;
+    // console.log(this.time)
+  },
+  filters: {
+    formatDate(time) {
+      var date = new Date(time);
+      return formatDate(date, "hh:mm");
+    }
   }
 };
 </script>
@@ -41,13 +60,52 @@ export default {
     margin-left: 10px;
   }
   .block-container {
-    color: #333;
-    background: #f8f8f8;
-    border-radius: 10px;
-    word-wrap: break-word;
-    min-height: 200px;
-    margin: 10px;
-    padding: 10px;
+    display: flex;
+
+    .line-container {
+      width: 5px;
+      display: flex;
+      flex-flow: column;
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background: #28c9d8;
+      }
+
+      .line {
+        flex: 1;
+        width: 6px;
+        border-left: 1px solid #e6e6e6;
+        margin-left: 4px;
+      }
+    }
+
+    .dtime {
+      margin-left: 9px;
+    }
+
+    .content-container {
+      flex: 1;
+      margin-left: 10px;
+
+      margin-bottom: 20px;
+      .content {
+        margin-top: 20px;
+        color: #333;
+        background: #f8f8f8;
+        border-radius: 10px;
+        word-wrap: break-word;
+        min-height: 200px;
+
+        padding: 10px;
+
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+      }
+    }
   }
 }
 </style>
