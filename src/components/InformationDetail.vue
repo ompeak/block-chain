@@ -11,7 +11,7 @@
         {{type}}
       </div>
       <div class="time">
-        {{updatedAt}}
+        {{updatedAt | formatDate}}
       </div>
     </div>
 
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import { formatDate } from "../js/data.js";
+
 import * as axios from "axios";
 import DetailHeader from "./components/DetailHeader";
 export default {
@@ -72,6 +74,12 @@ export default {
       .catch(function(error) {
         console.log(error);
       });
+  },
+  filters: {
+    formatDate(time) {
+      var date = new Date(time);
+      return formatDate(date, "yyyy-MM-dd hh:mm");
+    }
   }
 };
 </script>
@@ -89,12 +97,17 @@ export default {
       align-items: center;
     }
     .typeInfo {
+      margin-top: 10px;
       display: flex;
       // justify-content: space-around;
       align-items: center;
       .left {
         display: flex;
         flex-flow: column;
+
+        .time{
+          margin-top: 10px;
+        }
       }
     }
     .authorInfo {

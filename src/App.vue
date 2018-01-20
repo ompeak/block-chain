@@ -12,5 +12,4 @@ export default {
 
 <style lang="scss">
 @import "./css/common.scss";
-
 </style>
