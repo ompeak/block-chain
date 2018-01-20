@@ -4,7 +4,7 @@
         <div  class="block"  >{{data.title}}</div>
       </div>
       <div class="icon">
-        >
+
       </div>
   </div>
 </template>
@@ -44,9 +44,9 @@ export default {
     margin-right: 10px;
     width: 10px;
     height: 18px;
-    background-image: url("../../assets/back.png");
+    background-image: url("../../assets/arrowRight.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 10px 18px;
   }
 }
 </style>

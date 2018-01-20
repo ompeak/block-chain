@@ -14,7 +14,7 @@
 
           </div>
           <div class="time-info">
- 5/3
+              {{data.start_time}}
           </div>
 
         </div>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="type">
-          免费
+          {{data.fee}}
         </div>
     </div>
 
@@ -53,6 +53,8 @@ export default {
     };
   },
   mounted() {
+    console.log(this.data);
+
     this.id = this.data.id;
     this.imgUrl =
       "http://operate.ptrcipo.com/admin/rest/activities/" +
@@ -92,39 +94,39 @@ export default {
       font-size: 15px;
       font-weight: bold;
     }
-    .area-info{
+    .area-info {
       display: flex;
       align-items: center;
 
-      .time{
+      .time {
         font-size: 12px;
         display: flex;
-        .icon-time{
+        .icon-time {
           width: 13px;
           height: 13px;
           background-image: url("../../assets/time.png");
           background-repeat: no-repeat;
           background-size: 13px 13px;
         }
-        .time-info{
+        .time-info {
           margin-left: 5px;
         }
       }
-      .area{
+      .area {
         margin-left: 20px;
         font-size: 13px;
-      color: #666;
-display: flex;
-      .icon-area{
-        width: 13px;
+        color: #666;
+        display: flex;
+        .icon-area {
+          width: 13px;
           height: 13px;
           background-image: url("../../assets/area.png");
           background-repeat: no-repeat;
           background-size: 13px 13px;
-      }
-      .area-info{
-        margin-left: 5px;
-      }
+        }
+        .area-info {
+          margin-left: 5px;
+        }
       }
     }
 

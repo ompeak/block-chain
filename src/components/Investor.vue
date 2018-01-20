@@ -34,8 +34,8 @@ export default {
         let resData = res.data.data;
         self.list = resData.list;
         self.total = resData.total;
-        console.log(self.list);
-        console.log(self.total)
+        // console.log(self.list);
+        // console.log(self.total)
       })
       .catch(function(error) {
         console.log(error);
