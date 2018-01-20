@@ -1,7 +1,7 @@
  <template>
   <div class="nav">
       <router-link to="/" class="active" >资讯</router-link>
-      <router-link to="/app">应用</router-link>
+      <router-link to="/apps">应用</router-link>
       <router-link to="/investor">投资人</router-link>
       <router-link to="/navigation">导航</router-link>
       <router-link to="/activity">活动</router-link>

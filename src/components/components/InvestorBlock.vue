@@ -59,24 +59,23 @@ export default {
     flex: 1;
     .name-info {
       display: flex;
-      .name{
+      .name {
         font-weight: bold;
         font-size: 18px;
       }
-      .fund{
-        margin-left:10px;
+      .fund {
+        margin-left: 10px;
       }
     }
-    .line{
+    .line {
       height: 1px;
-      border-top:1px solid #e6e6e6;
-      margin-top:10px;
+      border-top: 1px solid #e6e6e6;
+      margin-top: 10px;
     }
-    .position{
-
+    .position {
     }
-    .introduction{
-margin-top:10px;
+    .introduction {
+      margin-top: 10px;
     }
   }
 }
