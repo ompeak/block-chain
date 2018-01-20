@@ -5,7 +5,7 @@
       <router-link to="/investor">投资人</router-link>
       <router-link to="/navigation">导航</router-link>
       <router-link to="/activity">活动</router-link>
-      <router-link to="/repository">知识库</router-link>
+      <router-link to="/notes">小百科</router-link>
     </div>
  </template>
 

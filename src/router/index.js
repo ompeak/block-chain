@@ -9,6 +9,8 @@ import Navigation from '@/components/navigation'
 import Investor from '@/components/Investor'
 import Apps from '@/components/Apps'
 import AppsDetail from '@/components/AppsDetail'
+import Notes from '@/components/Notes'
+import NotesDetail from '@/components/NotesDetail'
 
 Vue.use(Router)
 
@@ -58,6 +60,16 @@ export default new Router({
       path: '/appsdetail/:id',
       name: 'appsdetail',
       component: AppsDetail
+    },
+    {
+      path: '/notes',
+      name: 'notes',
+      component: Notes
+    },
+    {
+      path: '/notesdetail/:id',
+      name: 'notesdetail',
+      component: NotesDetail
     }
   ]
 })
