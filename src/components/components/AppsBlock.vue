@@ -4,7 +4,7 @@
       {{name}}
     </div>
     <div class="list" >
-      <div class="block" v-for="item in data"  >{{item.name}}</div>
+      <div @click="toDetail(item.id)" class="block" v-for="item in data"  >{{item.name}}</div>
     </div>
   </div>
 </template>
@@ -19,7 +19,12 @@ export default {
     return {};
   },
   mounted() {
-    console.log(this.data);
+    // console.log(this.data);
+  },
+  methods: {
+    toDetail(id) {
+      this.$router.push({ name: "appsdetail", params: { id: id } });
+    }
   }
 };
 </script>
@@ -32,20 +37,20 @@ export default {
     font-weight: bold;
     color: #666;
   }
-  .list{
+  .list {
     margin-top: 10px;
     display: flex;
     flex-flow: row;
-    .block{
+    .block {
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 5px;
       margin-left: 10px;
       height: 30px;
-      border:1px solid #e6e6e6;
+      border: 1px solid #e6e6e6;
       background: #f8f8f8;
-      font-size:14px;
+      font-size: 14px;
     }
   }
 }

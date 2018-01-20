@@ -8,6 +8,7 @@ import List from '@/components/List'
 import Navigation from '@/components/navigation'
 import Investor from '@/components/Investor'
 import Apps from '@/components/Apps'
+import AppsDetail from '@/components/AppsDetail'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/apps',
       name: 'Apps',
       component: Apps
+    },
+    {
+      path: '/appsdetail/:id',
+      name: 'appsdetail',
+      component: AppsDetail
     }
   ]
 })

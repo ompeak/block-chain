@@ -32,9 +32,9 @@ export default {
       .then(function(res) {
         let resData = res.data.data;
         self.list = resData;
-        for (var obj in resData) {
-          // alert(obj);
-        }
+        // for (var obj in resData) {
+        //   // alert(obj);
+        // }
         // console.log(JSON.stringify(self.list))
       })
       .catch(function(error) {

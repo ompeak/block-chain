@@ -8,18 +8,18 @@
 <script>
 export default {
   name: "Bar",
-  props:["id"],
-  data(){
-    return {
-
-    }
+  props: ["id"],
+  data() {
+    return {};
   },
-  mounted(){
-  },
+  mounted() {},
   methods: {
-    toBFun(){
-    this.$router.push({name:'informationdetail',params:{id:this.id,age:22}});
-   }
+    toBFun() {
+      this.$router.push({
+        name: "informationdetail",
+        params: { id: this.id, age: 22 }
+      });
+    }
   }
 };
 </script>
