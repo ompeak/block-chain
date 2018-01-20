@@ -11,6 +11,8 @@ import Apps from '@/components/Apps'
 import AppsDetail from '@/components/AppsDetail'
 import Notes from '@/components/Notes'
 import NotesDetail from '@/components/NotesDetail'
+import Activity from '@/components/Activity'
+import ActivityDetail from '@/components/ActivityDetail'
 
 Vue.use(Router)
 
@@ -70,6 +72,16 @@ export default new Router({
       path: '/notesdetail/:id',
       name: 'notesdetail',
       component: NotesDetail
+    },
+    {
+      path: '/activity',
+      name: 'activity',
+      component: Activity
+    },
+    {
+      path: '/activitydetail/:id',
+      name: 'activitydetail',
+      component: ActivityDetail
     }
   ]
 })
