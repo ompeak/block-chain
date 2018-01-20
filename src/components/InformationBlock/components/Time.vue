@@ -1,13 +1,21 @@
 <template>
   <div class="time">
-    <div>{{time}}</div>
+    <div>{{time | formatDate}}</div>
   </div>
 </template>
 
 <script>
+import { formatDate } from "../../../js/data.js";
+
 export default {
   name: "Time",
-  props: ["time"]
+  props: ["time"],
+  filters: {
+    formatDate(time) {
+      var date = new Date(time);
+      return formatDate(date, "yyyy-MM-dd ");
+    }
+  }
 };
 </script>
 

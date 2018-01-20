@@ -1,6 +1,6 @@
 <template>
   <div class="bar">
-    <div @click="toBFun">查看详情</div>
+    <div @click="toDtail">查看原文</div>
     <div></div>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   },
   mounted() {},
   methods: {
-    toBFun() {
+    toDtail() {
       this.$router.push({
         name: "informationdetail",
         params: { id: this.id, age: 22 }
