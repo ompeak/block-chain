@@ -1,5 +1,11 @@
  <template>
-  <div class="nav">
+ <div class="header">
+    <div class="logo">
+      <div class="icon-logo">
+
+      </div>
+    </div>
+    <div class="nav">
       <router-link to="/" class="active" >资讯</router-link>
       <router-link to="/apps">应用</router-link>
       <router-link to="/investor">投资人</router-link>
@@ -7,26 +13,52 @@
       <router-link to="/activity">活动</router-link>
       <router-link to="/notes">小百科</router-link>
     </div>
+ </div>
+
  </template>
 
 <style lang="scss" scoped>
-.nav {
-  color: #07727c;
-  background: #28c9d8;
-  height: 50px;
-  padding: 0 10px;
+.header {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-flow: column;
 
-  a {
-    color: #07727c;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .router-link-exact-active {
+  .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: #28c9d8;
     color: #fff;
+    font-size: 20px;
+
+    .icon-logo{
+width:96px;
+          height: 25px;
+          background-image: url("../../assets/logo.png");
+          background-repeat: no-repeat;
+          background-size: 96px 25px;
+      }
+  }
+
+
+  .nav {
+    color: #07727c;
+    background: #28c9d8;
+    height: 40px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: #07727c;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .router-link-exact-active {
+      color: #fff;
+    }
   }
 }
 </style>
