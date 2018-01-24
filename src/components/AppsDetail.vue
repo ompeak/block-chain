@@ -1,6 +1,6 @@
 <template>
 <div class="apps-detail">
- <DetailHeader title="应用详情" />
+ <DetailHeader title="应用详情" type="Apps" />
  <div class="detail-content">
    <div class="name-info">
      <div class="name">

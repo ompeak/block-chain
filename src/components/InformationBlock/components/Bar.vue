@@ -28,7 +28,7 @@ export default {
 .bar {
   margin-top: 10px;
   height: 50px;
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid #ccc;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

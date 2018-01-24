@@ -1,6 +1,6 @@
 <template>
   <div class="dtail-header">
-    <div class="left" @click="$router.go(-1)">
+    <div class="left" @click="toNav()">
       <div class="back">
 
       </div>
@@ -18,7 +18,15 @@
 
 export default {
   name: "DtailHeader",
-  props: ["title"]
+  props: ["title","type"], 
+  mounted() {
+    // console.log(this.data);
+  },
+  methods: {   
+    toNav() { 
+      this.$router.push({ name: this.type});
+    }
+  }
 };
 </script>
 

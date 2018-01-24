@@ -84,26 +84,27 @@ export default {
 
     .dtime {
       margin-left: 9px;
+      margin-bottom: 9px;
     }
 
     .content-container {
       flex: 1;
       margin-left: 10px;
-
+ 
       margin-bottom: 20px;
-      .content {
-        margin-top: 20px;
-        color: #333;
-        background: #f8f8f8;
+      .content { 
+
+  color:#666; 
+        background: #e6e6e6;
         border-radius: 10px;
-        word-wrap: break-word;
-        min-height: 200px;
+        word-wrap: break-word; 
 
         padding: 10px;
 
         display: flex;
         flex-flow: column;
         justify-content: space-between;
+	 
       }
     }
   }

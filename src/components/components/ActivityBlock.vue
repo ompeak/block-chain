@@ -1,5 +1,5 @@
 <template>
-  <div class="activity-block">
+  <div class="activity-block" @click="toLink()">
     <div class="image" :style="{backgroundImage: 'url(' + imgUrl + ')'}" >
 
     </div>
@@ -32,11 +32,7 @@
         <div class="type">
           {{data.fee}}
         </div>
-    </div>
-
-    <!-- <div class="list" >
-      <div @click="toDetail(item.id)" class="block" v-for="item in data"  >{{item.name}}</div>
-    </div> -->
+    </div> 
   </div>
 </template>
 
@@ -62,8 +58,8 @@ export default {
       "/banner/file";
   },
   methods: {
-    toDetail(id) {
-      this.$router.push({ name: "activitydetail", params: { id: id } });
+    toLink() {
+      window.location.href = this.data.link;
     }
   }
 };

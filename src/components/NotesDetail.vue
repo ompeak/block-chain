@@ -1,6 +1,6 @@
 <template>
 <div class="notes-detail">
- <DetailHeader title="小百科" />
+ <DetailHeader title="小百科" type="notes"  />
   <div class="detail-content">
     <div class="title">
       {{title}}

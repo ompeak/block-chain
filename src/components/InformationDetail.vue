@@ -1,6 +1,6 @@
 <template>
 <div class="information-detail">
- <DetailHeader title="资讯详情" />
+ <DetailHeader title="资讯详情" type="information" />
  <div class="detail-content">
 <div class="title">
     <a :href='link'></a>{{title}}
@@ -23,9 +23,9 @@
     <div class="author">
       作者:{{author}}
     </div>
-  </div>
-  <div class="content">
-    <div v-html="content"></div>
+  </div> 
+  <div class="content" v-html="formatSolution(content)"  >
+ 
   </div>
 
  </div>
@@ -55,7 +55,8 @@ export default {
       updatedAt: ""
     };
   },
-  mounted() {
+  mounted() { 
+
     let self = this;
     let id = this.$route.params.id;
     axios
@@ -75,6 +76,13 @@ export default {
         console.log(error);
       });
   },
+  methods: {
+    formatSolution(s) {
+      if (s) {
+        return s.replace(/\s/g, "<br/>");
+      } else return "";
+    }
+  },
   filters: {
     formatDate(time) {
       var date = new Date(time);
@@ -84,7 +92,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style   lang="scss">
 .information-detail {
   .detail-content {
     padding: 1rem;
@@ -105,7 +113,7 @@ export default {
         display: flex;
         flex-flow: column;
 
-        .time{
+        .time {
           margin-top: 10px;
         }
       }
@@ -123,7 +131,24 @@ export default {
     .content {
       margin-top: 10px;
       line-height: 28px;
+word-break:break-all; 
+    word-wrap:break-word;
+      // .input { 
+      //   color: #666;
+      //   padding: 10px;
+      //   width: 100%;
+      //   resize: none;
+      //   font-size: 14px;
+      //   line-height: 25px;
+      //   overflow: hidden;
+      //   word-wrap: break-word;
+      //   border: 0;
+			// 	background-color: transparent;
+			// 	min-height: 200px;
+      // }
     }
   }
 }
+
+ 
 </style>

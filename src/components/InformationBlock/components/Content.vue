@@ -1,5 +1,5 @@
 <template>
-  <div class="content" v-html="content" >
+  <div class="content-a" v-html="content" >
   </div>
 </template>
 
@@ -19,8 +19,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.contents {
-  color:#666;
-  line-height: 1rem;
+.content-a { 
 }
 </style>
