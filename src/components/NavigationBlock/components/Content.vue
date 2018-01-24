@@ -1,25 +1,25 @@
 <template>
   <div class="content">
-    <br>
-   <section class="contentDetail"> 
+    <!-- <br> -->
+   <!-- <section class="contentDetail"> 
      <div class="flex"><span class="fontBlack"><img src="./../../../assets/tradePlat.png" alt="" class='leftImg'>交易平台</span>
-     <router-link to="/WalletList/1"><span class="allPadding totalCount">全部<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+     <router-link to="/exchangeList/1"><span class="allPadding totalCount">全部<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
      </div>
      <div class="detailFirst">
        <div class="flex"><span>现货交易平台</span>
-       <router-link to="/WalletList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+       <router-link to="/exchangeList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
        </div>
         <div class="flex"><span>期货交易平台</span>
-        <router-link to="/WalletList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+        <router-link to="/exchangeList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
         </div>
         <div class="flex"><span>OTC场外交易平台</span>
-        <router-link to="/WalletList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+        <router-link to="/exchangeList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
         </div>
         <div class="flex"><span>大陆交易平台</span>
-        <router-link to="/WalletList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+        <router-link to="/exchangeList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
         </div>
      </div>
-   </section>
+   </section> -->
       <br>
      <section class="contentDetail"> 
      <div class="flex"><span class="fontBlack"><img src="./../../../assets/walletTool.png" alt="" class='leftImg'>钱包工具</span>
@@ -96,7 +96,7 @@ export default {
     
   }
   .detailFirst{
-    padding: 0 .7rem 0  1.5rem;
+    padding: 0 .7rem 0  1.9rem;
 
   }
   .flex{

@@ -3,7 +3,11 @@
  <DetailHeader title=交易平台详情 />
  <div class="content" >
    <div class="lineContent" style='padding-left: .7rem;'>
-      <span class="walletTitle">{{item.name}}</span>
+      <div class="contentImg contentBase"><img src="./../assets/huobilogo.png" alt=""></div>
+      <div class="contentBase">Bittexwsf（B网）</div>
+      <div class="contentBase">http://www.ndfsdif.com</div>
+      <div class="contentBase">或者</div>
+      <div class="contentBase">直接手机访问</div>
    </div>
   
   </div>
@@ -40,7 +44,7 @@ export default {
       let self = this;
       let id = this.$route.params.id;
       axios
-        .get("http://operate.ptrcipo.com/wallet/?type=all&page=0&size=4" )
+        .get("http://operate.ptrcipo.com/exchange/?type=all&page=0&size=4" )
         .then(function(res) {
           // console.log(res.data.data);
           self.data = res.data.data.list;
@@ -65,7 +69,7 @@ export default {
         let self = this;
         let id = this.$route.params.id;
         axios
-          .get("http://operate.ptrcipo.com/wallet/?type=a&page=0&size=4" )
+          .get("http://operate.ptrcipo.com/exchange/?type=a&page=0&size=4" )
           .then(function(res) {
          console.log(res.data.data);
             self.data = res.data.data.list;
@@ -92,7 +96,7 @@ export default {
         let self = this;
         let id = this.$route.params.id;
         axios
-          .get("http://operate.ptrcipo.com/wallet/?type=all&page=0&size=4" )
+          .get("http://operate.ptrcipo.com/exchange/?type=all&page=0&size=4" )
           .then(function(res) {
             
              self.data = res.data.data.list;
@@ -121,40 +125,11 @@ export default {
     width: 90%;
     margin: 5%;
     border-radius: .6rem;
-    .walletTitle{
-      display: inline-block;
-      height: 2rem;
-      font-weight: bolder;
-      vertical-align: middle;
-          padding: .7rem;
-    }
-  .leftImg{
-        display: inline-block;
-        vertical-align: middle;
-        height: 1.2rem;
-        padding: 0 .4rem;
-      }
-    .blueColor{
-      color: #06f9fd
-    }
-    .lineContent{
-      border-bottom: 1px solid #efefef;
+    .contentBase{
       display: flex;
-      height: 3rem;
-      padding-top: .7rem;
-      .ico{
-        width: 30%;
-      }
-      .secondContent{
-        width: 50%;
-      }
-    }
-    .lastMargin{
-      margin: 0 1rem;
-      span:last-child{
-        border-bottom: 0
-      }
+      justify-content: center;
     }
   }
+
 }
 </style>

@@ -14,6 +14,7 @@ import Notes from '@/components/Notes'
 import NotesDetail from '@/components/NotesDetail'
 import Activity from '@/components/Activity'
 import ActivityDetail from '@/components/ActivityDetail'
+import ExchangeList from '@/components/exchangeList'
 
 Vue.use(Router)
 
@@ -88,6 +89,11 @@ export default new Router({
       path: '/activitydetail/:id',
       name: 'activitydetail',
       component: ActivityDetail
+    },
+    {
+      path: '/exchangeList/:id',
+      name: 'exchangeList',
+      component: ExchangeList
     }
   ]
 })

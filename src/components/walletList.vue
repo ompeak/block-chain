@@ -7,7 +7,7 @@
    </div>
    <div class="lineContent lastMargin">
      <span class="secondContent"><img src="./../assets/doMoney.png" alt="" class='leftImg'>支持<span class="blueColor">{{item.total}}种货币</span></span>
-     <span class="secondContent"><img src="./../assets/walletTool.png" alt="" class='leftImg'>
+     <span class="secondContent"><img src="./../assets/language.png" alt="" class='leftImg'>
      <span v-for="lang in item.langageArr">
         <span>{{lang}}&nbsp;&nbsp; </span>
      </span>
@@ -139,6 +139,7 @@ export default {
       font-weight: bolder;
       vertical-align: middle;
           padding: .7rem;
+          font-size: 1.2rem;
     }
   .leftImg{
         display: inline-block;
