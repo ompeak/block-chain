@@ -8,7 +8,7 @@
       {{data.name}}
     </div>
     <div class="fund">
-      {{data.fund}}
+      {{data.type}}
     </div>
   </div>
   <div class="line"></div>
@@ -51,7 +51,7 @@ export default {
 
 <style scoped lang="scss">
 .investor-block {
-  margin: 10px;
+  margin: 20px;
   display: flex;
   flex-flow: row;
   .image {
@@ -79,6 +79,7 @@ export default {
         justify-content: center;
         align-items: center;
         padding: 3px;
+				color: #666;
       }
     }
     .line {

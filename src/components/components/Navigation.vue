@@ -9,7 +9,7 @@
       <router-link to="/" class="active" >资讯</router-link>
       <router-link to="/apps">应用</router-link>
       <router-link to="/investor">投资人</router-link>
-      <router-link to="/navigation">导航</router-link>
+      <router-link to="/navigation">工具</router-link>
       <router-link to="/activity">活动</router-link>
       <router-link to="/notes">小百科</router-link>
     </div>
@@ -58,6 +58,7 @@ width:96px;
     }
     .router-link-exact-active {
       color: #fff;
+			font-size: 20px;
     }
   }
 }

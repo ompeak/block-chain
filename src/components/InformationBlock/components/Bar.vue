@@ -1,6 +1,6 @@
 <template>
   <div class="bar">
-    <div @click="toDtail">查看原文</div>
+    <div @click="toDtail">【查看原文】</div>
     <div></div>
   </div>
 </template>

@@ -15,16 +15,15 @@
 </template>
 
 <script>
-
 export default {
   name: "DtailHeader",
-  props: ["title","type"], 
+  props: ["title", "type"],
   mounted() {
     // console.log(this.data);
   },
-  methods: {   
-    toNav() { 
-      this.$router.push({ name: this.type});
+  methods: {
+    toNav() {
+      this.$router.push({ name: this.type });
     }
   }
 };
@@ -45,11 +44,8 @@ export default {
   justify-content: space-around;
   align-items: center;
 
-
-
-  .left{
-
-    .back{
+  .left {
+    .back {
       width: 10px;
       height: 18px;
       background-image: url("../../assets/back.png");
@@ -57,13 +53,12 @@ export default {
       background-size: cover;
     }
   }
-  .center{
+  .center {
     flex: 1;
     display: flex;
     justify-content: center;
   }
-  .right{
-
+  .right {
   }
 }
 </style>

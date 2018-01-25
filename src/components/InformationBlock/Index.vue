@@ -3,6 +3,7 @@
   <Time :time="time"  />
   <div class="block-container" v-for="item in data">
     <div class="line-container">
+			<div class="dot-e"></div>
      <div class="dot"></div>
       <div class="line">
       </div>
@@ -67,6 +68,12 @@ export default {
       display: flex;
       flex-flow: column;
 
+      .dot-e {
+        height: 5px;
+        width: 6px;
+        border-left: 1px solid #e6e6e6;
+        margin-left: 4px;
+      }
       .dot {
         width: 10px;
         height: 10px;
@@ -90,21 +97,19 @@ export default {
     .content-container {
       flex: 1;
       margin-left: 10px;
- 
-      margin-bottom: 20px;
-      .content { 
 
-  color:#666; 
+      margin-bottom: 20px;
+      .content {
+        color: #666;
         background: #e6e6e6;
         border-radius: 10px;
-        word-wrap: break-word; 
+        word-wrap: break-word;
 
         padding: 10px;
 
         display: flex;
         flex-flow: column;
         justify-content: space-between;
-	 
       }
     }
   }

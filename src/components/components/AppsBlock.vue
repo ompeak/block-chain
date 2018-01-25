@@ -1,7 +1,7 @@
 <template>
   <div class="apps-block">
     <div class="name">
-      {{name}}
+      {{name | toUpper}}
     </div>
     <div class="list" >
       <div @click="toDetail(item.id)" class="block" v-for="item in data"  >{{item.name}}</div>
@@ -24,6 +24,11 @@ export default {
   methods: {
     toDetail(id) {
       this.$router.push({ name: "appsdetail", params: { id: id } });
+    }
+  },
+  filters: {
+    toUpper(val) { 
+      return val.toUpperCase();
     }
   }
 };

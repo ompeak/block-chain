@@ -42,7 +42,7 @@ export default {
     axios
       .get("http://operate.ptrcipo.com/note/" + id)
       .then(function(res) {
-        console.log(res)
+        // console.log(res)
         let resData = res.data.data;
         self.title = resData.title;
         self.type = resData.type;
@@ -59,7 +59,7 @@ export default {
 <style scoped lang="scss">
 .notes-detail {
   .detail-content {
-    padding: 10px;
+    padding: 20px;
 
     .title{
       font-size: 20px;
@@ -75,6 +75,7 @@ export default {
 
     .content{
       margin-top:30px;
+			line-height: 26px;
     }
   }
 }

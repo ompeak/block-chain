@@ -19,7 +19,7 @@ export default {
     return {};
   },
   mounted() {
-    console.log(this.data);
+    // console.log(this.data);
   },
   methods: {
     toDetail(id) {
@@ -42,11 +42,11 @@ export default {
 
   .icon {
     margin-right: 10px;
-    width: 10px;
-    height: 18px;
+    width: 8px;
+    height: 16px;
     background-image: url("../../assets/arrowRight.png");
     background-repeat: no-repeat;
-    background-size: 10px 18px;
+    background-size: 8px 16px;
   }
 }
 </style>

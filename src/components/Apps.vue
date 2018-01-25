@@ -31,11 +31,7 @@ export default {
       .get("http://operate.ptrcipo.com/app")
       .then(function(res) {
         let resData = res.data.data;
-        self.list = resData;
-        // for (var obj in resData) {
-        //   // alert(obj);
-        // }
-        // console.log(JSON.stringify(self.list))
+        self.list = resData; 
       })
       .catch(function(error) {
         console.log(error);
