@@ -54,7 +54,7 @@ export default {
     let self = this;
     let id = this.$route.params.id;
     axios
-      .get("http://operate.ptrcipo.com/wallet/group/")
+      .get("http://www.ptrcipo.com/wallet/group/")
       .then(function(res) {
         self.manyWallet = res.data.data.a;
         self.singleWallet = res.data.data.单币种;
@@ -64,7 +64,7 @@ export default {
       });
 
       axios
-      .get("http://operate.ptrcipo.com/exchange/group/")
+      .get("http://www.ptrcipo.com/exchange/group/")
       .then(function(res) {
         self.manyExchange = res.data.data.a;
         self.singleExchange = res.data.data.b;

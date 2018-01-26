@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import {baseUrl} from "./../../js/env";
 export default {
   name: "ActivityBlock",
   props: ["data"],
@@ -53,7 +54,7 @@ export default {
 
     this.id = this.data.id;
     this.imgUrl =
-      "http://operate.ptrcipo.com/admin/rest/activities/" +
+      "http://www.ptrcipo.com/admin/rest/activities/" +
       this.id +
       "/banner/file";
   },

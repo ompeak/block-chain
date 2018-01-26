@@ -39,6 +39,7 @@ import { formatDate } from "../js/data.js";
 
 import * as axios from "axios";
 import DetailHeader from "./components/DetailHeader";
+import {baseUrl} from "./../js/env";
 export default {
   name: "InformationDetail",
   components: {
@@ -60,7 +61,7 @@ export default {
     let self = this;
     let id = this.$route.params.id;
     axios
-      .get("http://operate.ptrcipo.com/news/" + id)
+      .get("http://www.ptrcipo.com/news/" + id)
       .then(function(res) {
         // console.log("res" + JSON.stringify(res));
         let resData = res.data.data;

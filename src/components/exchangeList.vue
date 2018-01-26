@@ -18,6 +18,7 @@
 <script>
 import * as axios from "axios";
 import DetailHeader from "./components/DetailHeader";
+import {baseUrl} from "./../js/env";
 export default {
   name: "InformationDetail",
   components: {
@@ -44,7 +45,7 @@ export default {
       let self = this;
       let id = this.$route.params.id;
       axios
-        .get("http://operate.ptrcipo.com/exchange/?type=all&page=0&size=4" )
+        .get("http://www.ptrcipo.com/exchange/?type=all&page=0&size=4" )
         .then(function(res) {
           // console.log(res.data.data);
           self.data = res.data.data.list;
@@ -69,7 +70,7 @@ export default {
         let self = this;
         let id = this.$route.params.id;
         axios
-          .get("http://operate.ptrcipo.com/exchange/?type=a&page=0&size=4" )
+          .get("http://www.ptrcipo.com/exchange/?type=a&page=0&size=4" )
           .then(function(res) {
          console.log(res.data.data);
             self.data = res.data.data.list;
@@ -96,7 +97,7 @@ export default {
         let self = this;
         let id = this.$route.params.id;
         axios
-          .get("http://operate.ptrcipo.com/exchange/?type=all&page=0&size=4" )
+          .get("http://www.ptrcipo.com/exchange/?type=all&page=0&size=4" )
           .then(function(res) {
             
              self.data = res.data.data.list;

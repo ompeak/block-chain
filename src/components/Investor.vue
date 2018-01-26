@@ -13,6 +13,7 @@ import axios from "axios";
 Vue.prototype.$http = axios;
 import Navigation from "../components/components/Navigation";
 import InvestorBlock from "../components/components/InvestorBlock";
+import {baseUrl} from "./../js/env";
 export default {
   name: "Investor",
   components: {
@@ -28,7 +29,7 @@ export default {
   created() {
     let self = this;
     this.$http
-      .get("http://operate.ptrcipo.com/investor")
+      .get("http://www.ptrcipo.com/investor")
       .then(function(res) {
         // console.log(res);
         let resData = res.data.data;

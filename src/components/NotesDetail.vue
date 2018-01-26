@@ -23,6 +23,7 @@
 <script>
 import * as axios from "axios";
 import DetailHeader from "./components/DetailHeader";
+import {baseUrl} from "./../js/env";
 export default {
   name: "AppsDetail",
   components: {
@@ -40,7 +41,7 @@ export default {
     let self = this;
     let id = this.$route.params.id;
     axios
-      .get("http://operate.ptrcipo.com/note/" + id)
+      .get("http://www.ptrcipo.com/note/" + id)
       .then(function(res) {
         // console.log(res)
         let resData = res.data.data;

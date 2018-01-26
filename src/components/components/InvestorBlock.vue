@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import {baseUrl} from "./../../js/env";
 export default {
   name: "InvestorBlock",
   props: ["data"],
@@ -41,7 +42,7 @@ export default {
 
 
     this.imgUrl =
-      "http://operate.ptrcipo.com/admin/rest/investors/" +
+      "http://www.ptrcipo.com/admin/rest/investors/" +
       this.id +
       "/avatar/file";
   }

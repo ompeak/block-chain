@@ -17,6 +17,7 @@ import axios from "axios";
 Vue.prototype.$http = axios;
 import Block from "./NavigationBlock/index";
 import Navigation from "./components/Navigation";
+import {baseUrl} from "./../js/env";
 export default {
   name: "",
   components: {
@@ -29,7 +30,7 @@ export default {
   created() {
     // console.log('created'+JSON.stringify(informationData) );
     // this.$http
-    //   .get("http://operate.ptrcipo.com/news/?page=0&size=4")
+    //   .get("http://www.ptrcipo.com/news/?page=0&size=4")
     //   .then(function(response) {
     //     console.log(response);
     //   })

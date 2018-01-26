@@ -14,6 +14,7 @@ import axios from "axios";
 Vue.prototype.$http = axios;
 import Block from "./InformationBlock/index";
 import Navigation from "./components/Navigation";
+import {baseUrl} from "./../js/env";
 export default {
   name: "Information",
   components: {
@@ -28,7 +29,7 @@ export default {
   created() {
     let self = this;
     this.$http
-      .get("http://operate.ptrcipo.com/news")
+      .get("http://www.ptrcipo.com/news")
       .then(function(res) {
         let resData = res.data.data;
         self.items = resData;

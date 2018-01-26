@@ -25,7 +25,7 @@ export default {
     console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
     console.log("%c%s", "color:red", "message: " + this.message); //已被初始化
     axios
-      .get("http://operate.ptrcipo.com/news/?page=0&size=4")
+      .get("http://www.ptrcipo.com/news/?page=0&size=4")
       .then(function(response) {
         console.log(response);
       })

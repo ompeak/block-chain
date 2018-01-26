@@ -13,6 +13,7 @@ import axios from "axios";
 Vue.prototype.$http = axios;
 import Navigation from "../components/components/Navigation";
 import AppsBlock from "../components/components/AppsBlock";
+import {baseUrl} from "./../js/env";
 export default {
   name: "Apps",
   components: {
@@ -28,7 +29,7 @@ export default {
   created() {
     let self = this;
     this.$http
-      .get("http://operate.ptrcipo.com/app")
+      .get("http://www.ptrcipo.com/app")
       .then(function(res) {
         let resData = res.data.data;
         self.list = resData;
