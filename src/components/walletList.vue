@@ -1,6 +1,6 @@
 <template>
 <div class="information-detail">
- <DetailHeader title=钱包工具 />
+ <DetailHeader title="钱包工具" type="Navigation" />
  <div class="content" v-for='item in data'>
    <div class="lineContent" style='padding-left: .7rem;'>
       <span class="walletTitle">{{item.name}}</span>
@@ -40,20 +40,19 @@ export default {
   mounted() {
    let self = this;
     let id =this.$route.params.id;
-    if(id == 1){
       this.allWallet();
-    }else if(id == 2){
-      this.singleWallet();
-    }else{
-      this.muchWallet();
-    }
+  
   },
   methods:{
     allWallet(){
       let self = this;
       let id = this.$route.params.id;
+       console.log('all:',id)
+      if(id =='total'){
+        id = 'all'
+      }
       axios
-        .get("http://www.ptrcipo.com/wallet/?type=all&page=0&size=4" )
+        .get(`http://www.ptrcipo.com/wallet/?type=${id}&page=0&size=4` )
         .then(function(res) {
           // console.log(res.data.data);
           self.data = res.data.data.list;
@@ -74,54 +73,7 @@ export default {
           console.log(error);
         });
       },
-      singleWallet(){
-        let self = this;
-        let id = this.$route.params.id;
-        axios
-          .get("http://www.ptrcipo.com/wallet/?type=a&page=0&size=4" )
-          .then(function(res) {
-         console.log(res.data.data);
-            self.data = res.data.data.list;
-            try{
-             for(let i = 0;i<res.data.data.list.length;i++){
-                self.data[i].total = res.data.data.list[i].fiats.length
-                
-                let  arr=res.data.data.list[i].system.split(",");
-                self.data[i].arr = arr
-                let  langageArr=res.data.data.list[i].language.split(",");
-                  self.data[i].langageArr = langageArr
-                console.log(self.data[i] )
-             }
-            let  arr=theString.split("|");
-          }catch(e){
-
-          }
-           })
-          .catch(function(error) {
-            console.log(error);
-          });
-      },
-      muchWallet(){
-        let self = this;
-        let id = this.$route.params.id;
-        axios
-          .get("http://www.ptrcipo.com/wallet/?type=all&page=0&size=4" )
-          .then(function(res) {
-            
-             self.data = res.data.data.list;
-              try{
-             for(let i = 0;i<res.data.data.list.length;i++){
-                self.data[i].total = res.data.data.list[i].fiats.length
-                console.log(self.data[i].total )
-             }
-          }catch(e){
-
-          }
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
-      },
+      
   }
 };
 </script>

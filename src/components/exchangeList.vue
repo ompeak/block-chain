@@ -1,15 +1,40 @@
 <template>
 <div class="information-detail">
- <DetailHeader title=交易平台详情 />
- <div class="content" >
+ <DetailHeader title="钱包工具" type="Navigation" />
+ <div class="content" v-for='item in data'>
    <div class="lineContent" style='padding-left: .7rem;'>
-      <div class="contentImg contentBase"><img src="./../assets/huobilogo.png" alt=""></div>
-      <div class="contentBase">Bittexwsf（B网）</div>
-      <div class="contentBase">http://www.ndfsdif.com</div>
-      <div class="contentBase">或者</div>
-      <div class="contentBase">直接手机访问</div>
+      <span class="walletTitle">{{item.name}}</span>
    </div>
-  
+   <div class="lineContent lastMarginFirst">
+     <span class="secondContent"><img src="./../assets/doMoney.png" alt="" class='leftImg'>
+        支持<span class="blueColor">{{item.total || 0}}种货币</span>
+     </span>
+     <span class="secondContent"><img src="./../assets/language.png" alt="" class='leftImg'>
+        <span>
+            <span>{{item.lang}}&nbsp;&nbsp; </span>
+        </span>
+      
+     </span>
+   </div>
+   <div class=" lastMargin everyTop" >
+      <p class="ico secondContent colorblue" v-if="item.charge"><img src="./../assets/outerForiger.png" alt="" class='leftImg'>无需翻墙</p>
+      <p class="ico secondContent colorDis" v-if="!item.charge"><img src="./../assets/outerDisable.png" alt="" class='leftImg'>无需翻墙</p>
+   </div>
+    <div class=" lastMargin everyTop" >
+     <p class="ico secondContent colorblue"  v-if="item.type"><img src="./../assets/rmbOk.png" alt="" class='leftImg'>人民币交易</p>
+     <p class="ico secondContent colorDis"  v-if="!item.type"><img src="./../assets/rmbDisable.png" alt="" class='leftImg'>人民币交易</p>
+
+   </div>
+    <div class=" lastMargin everyTop" >
+     <p class="ico secondContent colorblue" v-if="item.gfw"><img src="./../assets/idcard.png" alt="" class='leftImg'>国内手机/身份证注册</p>
+     <p class="ico secondContent colorDis" v-if="!item.gfw"><img src="./../assets/idcardDisable.png" alt="" class='leftImg'>国内手机/身份证注册</p>
+
+   </div>
+    <div class=" lastMargin everyTop lastContent"  >
+     <p class="ico secondContent colorblue" v-if="item.yuan"><img src="./../assets/bankcard.png" alt="" class='leftImg'>国内银行卡充值体现</p>
+     <p class="ico secondContent colorDis" v-if="!item.yuan"><img src="./../assets/bankDisable.png" alt="" class='leftImg'>国内银行卡充值体现</p>
+   </div>
+
   </div>
 </div>
 
@@ -32,31 +57,33 @@ export default {
   mounted() {
    let self = this;
     let id =this.$route.params.id;
-    if(id == 1){
       this.allWallet();
-    }else if(id == 2){
-      this.singleWallet();
-    }else{
-      this.muchWallet();
-    }
+  
   },
   methods:{
     allWallet(){
       let self = this;
       let id = this.$route.params.id;
+      // console.log('all:',all)
+      if(id =='total'){
+        id = 'all'
+      }
       axios
-        .get("http://www.ptrcipo.com/exchange/?type=all&page=0&size=4" )
+        .get(`http://www.ptrcipo.com/exchange/?type=${id}&page=0&size=4` )
         .then(function(res) {
-          // console.log(res.data.data);
+          // console.log(res.data.data.list);
           self.data = res.data.data.list;
           try{
              for(let i = 0;i<res.data.data.list.length;i++){
-                self.data[i].total = res.data.data.list[i].fiats.length
-                 let  arr=res.data.data.list[i].system.split(",");
+                self.data[i].total = self.data[i].fiats.length
+                // if(!self.data[i].total){}
+                console.log('self.data[i].total:',self.data[i].total)
+                //  let  arr=res.data.data.list[i].system.split(",");
                   self.data[i].arr = arr
-                 let  langageArr=res.data.data.list[i].language.split(",");
+                 let  langageArr = []
+                 langageArr = self.data[i].lang.split(",");
                   self.data[i].langageArr = langageArr
-                 console.log(self.data[i] )
+                 console.log('a:',self.data[i] )
              }
           }catch(e){
 
@@ -66,54 +93,7 @@ export default {
           console.log(error);
         });
       },
-      singleWallet(){
-        let self = this;
-        let id = this.$route.params.id;
-        axios
-          .get("http://www.ptrcipo.com/exchange/?type=a&page=0&size=4" )
-          .then(function(res) {
-         console.log(res.data.data);
-            self.data = res.data.data.list;
-            try{
-             for(let i = 0;i<res.data.data.list.length;i++){
-                self.data[i].total = res.data.data.list[i].fiats.length
-                
-                let  arr=res.data.data.list[i].system.split(",");
-                self.data[i].arr = arr
-                let  langageArr=res.data.data.list[i].language.split(",");
-                  self.data[i].langageArr = langageArr
-                console.log(self.data[i] )
-             }
-            let  arr=theString.split("|");
-          }catch(e){
-
-          }
-           })
-          .catch(function(error) {
-            console.log(error);
-          });
-      },
-      muchWallet(){
-        let self = this;
-        let id = this.$route.params.id;
-        axios
-          .get("http://www.ptrcipo.com/exchange/?type=all&page=0&size=4" )
-          .then(function(res) {
-            
-             self.data = res.data.data.list;
-              try{
-             for(let i = 0;i<res.data.data.list.length;i++){
-                self.data[i].total = res.data.data.list[i].fiats.length
-                console.log(self.data[i].total )
-             }
-          }catch(e){
-
-          }
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
-      },
+      
   }
 };
 </script>
@@ -126,11 +106,60 @@ export default {
     width: 90%;
     margin: 5%;
     border-radius: .6rem;
-    .contentBase{
+    .walletTitle{
+      display: inline-block;
+      height: 2rem;
+      font-weight: bolder;
+      vertical-align: middle;
+          padding: .7rem;
+          font-size: 1.2rem;
+    }
+  .leftImg{
+        display: inline-block;
+        vertical-align: middle;
+        height: 1.2rem;
+        padding: 0 .4rem;
+      }
+    .blueColor{
+      color: #06f9fd
+    }
+    .lineContent{
+      border-bottom: 1px solid #efefef;
       display: flex;
-      justify-content: center;
+      height: 3rem;
+      padding-top: .7rem;
+      .ico{
+        width: 30%;
+      }
+      .secondContent{
+        width: 50%;
+      }
+    }
+    .everyTop{
+          padding-top: 10px;
+    }
+    .colorblue{
+          color: #28c9d8;
+    }
+    .colorDis{
+      color : #666
+    }
+    .lastMargin{
+      margin: 0 1rem;
+      span:last-child{
+        border-bottom: 0
+      }
+    }
+    .lastMarginFirst{
+      margin: 0 1rem;
+      line-height: 3;
+    }
+    .ico{
+      font-size: .8rem;
+    }
+    .lastContent{
+      padding-bottom: 10px;
     }
   }
-
 }
 </style>

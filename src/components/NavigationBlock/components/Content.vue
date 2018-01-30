@@ -1,37 +1,26 @@
 <template>
   <div class="content">
-    <!-- <br> -->
-   <!-- <section class="contentDetail"> 
+    <br>
+   <section class="contentDetail"> 
      <div class="flex"><span class="fontBlack"><img src="./../../../assets/tradePlat.png" alt="" class='leftImg'>交易平台</span>
-     <router-link to="/exchangeList/1"><span class="allPadding totalCount">全部<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+     <router-link to="/exchangeList/total"><span class="allPadding totalCount">全部<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
      </div>
-     <div class="detailFirst">
-       <div class="flex"><span>现货交易平台</span>
-       <router-link to="/exchangeList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+     <div class="detailFirst" v-for="item in tableDataTrade">
+       <div class="flex borderBot"><span>{{item.name}}</span>
+       <router-link  :to='"/exchangeList/"+item.name'><span class="totalCount">共{{item.total}}个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
        </div>
-        <div class="flex"><span>期货交易平台</span>
-        <router-link to="/exchangeList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
-        </div>
-        <div class="flex"><span>OTC场外交易平台</span>
-        <router-link to="/exchangeList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
-        </div>
-        <div class="flex"><span>大陆交易平台</span>
-        <router-link to="/exchangeList/1"><span class="totalCount">共20个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
-        </div>
+    
      </div>
-   </section> -->
+   </section>
       <br>
      <section class="contentDetail"> 
      <div class="flex"><span class="fontBlack"><img src="./../../../assets/walletTool.png" alt="" class='leftImg'>钱包工具</span>
       <router-link to="/WalletList/total"><span class="allPadding totalCount">全部<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
      </div>
-     <div class="detailFirst">
-      <div class="flex"><span>多币种钱包</span>
-      <router-link to="/WalletList/1"><span class="totalCount">共{{manyWallet}}个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
-      </div>
-      <div class="flex"><span>官方单币种钱包</span>
-      <router-link to="/WalletList/2"><span class="totalCount">共{{singleWallet}}个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
-      </div>
+     <div class="detailFirst" v-for="item in tableData">
+        <div class="flex borderBot"><span>{{item.name}}</span>
+        <router-link :to='"/WalletList/"+item.name'><span class="totalCount">共{{item.total}}个<img src="./../../../assets/rightArror.png" alt="" class='roarrimg'></span></router-link>
+        </div>
      </div>
    </section>
   </div>
@@ -47,7 +36,9 @@ export default {
       manyWallet: 0,
       singleWallet:0,
       manyExchange : 0,
-      singleExchange : 0
+      singleExchange : 0,
+      tableData : [],
+      tableDataTrade : [],
     };
   },
   mounted() {
@@ -56,8 +47,10 @@ export default {
     axios
       .get("http://www.ptrcipo.com/wallet/group/")
       .then(function(res) {
-        self.manyWallet = res.data.data.a;
-        self.singleWallet = res.data.data.单币种;
+        console.log('res:',res.data.data.list)
+        self.tableData = res.data.data.list
+        // self.manyWallet = res.data.data.a;
+        // self.singleWallet = res.data.data.单币种;
       })
       .catch(function(error) {
         console.log(error);
@@ -66,8 +59,8 @@ export default {
       axios
       .get("http://www.ptrcipo.com/exchange/group/")
       .then(function(res) {
-        self.manyExchange = res.data.data.a;
-        self.singleExchange = res.data.data.b;
+        self.tableDataTrade = res.data.data.list
+        console.log('self.tableDataTrade:',self.tableDataTrade)
       })
       .catch(function(error) {
         console.log(error);
@@ -104,6 +97,9 @@ export default {
     justify-content: space-between;
     padding: .7rem 0;
     border-bottom: 1px solid #e6e6e6;
+  }
+  .borderBot{
+        border-bottom: 1px solid #efefef !important;
   }
   .detailFirst div:last-child{
     border-bottom:0
