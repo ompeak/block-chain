@@ -47,7 +47,7 @@ export default {
     allWallet(){
       let self = this;
       let id = this.$route.params.id;
-       console.log('all:',id)
+      //  console.log('all:',id)
       if(id =='total'){
         id = 'all'
       }

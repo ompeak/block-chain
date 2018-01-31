@@ -1,9 +1,9 @@
 <template>
 <div class="information-detail">
- <DetailHeader title="钱包工具" type="Navigation" />
+ <DetailHeader title="交易平台" type="Navigation" />
  <div class="content" v-for='item in data'>
    <div class="lineContent" style='padding-left: .7rem;'>
-      <span class="walletTitle">{{item.name}}</span>
+      <span class="walletTitle">{{item.name}} <img v-bind:src="item.logo" alt="" class="topImg"></span>
    </div>
    <div class="lineContent lastMarginFirst">
      <span class="secondContent"><img src="./../assets/doMoney.png" alt="" class='leftImg'>
@@ -111,8 +111,11 @@ export default {
       height: 2rem;
       font-weight: bolder;
       vertical-align: middle;
-          padding: .7rem;
-          font-size: 1.2rem;
+        padding: .7rem;
+        font-size: 1.2rem;
+          .topImg{
+                height: 1rem;
+          }
     }
   .leftImg{
         display: inline-block;
