@@ -41,13 +41,14 @@ export default {
     font-size: 18px;
     font-weight: bold;
     color: #666;
+    padding-left: 11px;
   }
   .list {
     margin-top: 10px;
-    display: flex;
-    flex-flow: row;
+    // display: flex;
+    // flex-flow: row;
     .block {
-      display: flex;
+      display: inline-block;
       justify-content: center;
       align-items: center;
       padding: 5px;
@@ -56,6 +57,8 @@ export default {
       border: 1px solid #e6e6e6;
       background: #f8f8f8;
       font-size: 14px;
+      margin-top: 10px; 
+      line-height: 2;
     }
   }
 }

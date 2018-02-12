@@ -24,19 +24,13 @@
       作者:{{author}}
     </div>
   </div> 
-  <div class="content" v-html="formatSolution(content)"  >
- 
+  <div class="content" v-html="(content)"  >
   </div>
-
  </div>
-
 </div>
-
 </template>
-
 <script>
 import { formatDate } from "../js/data.js";
-
 import * as axios from "axios";
 import DetailHeader from "./components/DetailHeader";
 import {baseUrl} from "./../js/env";

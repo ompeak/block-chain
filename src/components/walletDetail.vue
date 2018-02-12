@@ -1,6 +1,6 @@
 <template>
 <div class="information-detail">
- <DetailHeader title="交易平台详情"   type="Navigation"/>
+ <DetailHeader title="钱包工具详情"   type="Navigation"/>
  <div class="content" >
    <div class="lineContent" >
       <div class="contentImg contentBase"><img v-bind:src=pic   alt="" class="logoImg"></div>
@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      data: [],
+      data: {},
       pic: '',
     };
   },
@@ -43,11 +43,11 @@ export default {
       let self = this;
       let id = this.$route.params.id;
       axios
-        .get(`http://www.ptrcipo.com/exchange/${id}` )
+        .get(`http://www.ptrcipo.com/wallets/${id}` )
         .then(function(res) {
-           console.log('res.data.data:',res.data.data);
-          self.data = res.data.data;
-          self.pic =`http://www.ptrcipo.com/admin/rest/exchanges/${id}/logo/file`
+           console.log('res.data:',res.data);
+          self.data = res.data;
+          self.pic =`http://www.ptrcipo.com/admin/rest/wallets/${id}/logo/file`
         })
         .catch(function(error) {
           console.log(error);
@@ -97,7 +97,8 @@ export default {
         line-height: 4rem;
         border: 1px solid #e6e6e6;
         margin: .1rem 1rem 1rem;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        text-align: center;
         border-radius: .3rem;
     }
     .contentOr{

@@ -15,6 +15,8 @@ import NotesDetail from '@/components/NotesDetail'
 import Activity from '@/components/Activity'
 import ActivityDetail from '@/components/ActivityDetail'
 import ExchangeList from '@/components/exchangeList'
+import ExchangeDetail from '@/components/exchangeDetail'
+import WalletDetail from '@/components/walletDetail'
 
 Vue.use(Router)
 
@@ -94,6 +96,16 @@ export default new Router({
       path: '/exchangeList/:id',
       name: 'exchangeList',
       component: ExchangeList
+    },
+    {
+      path: '/exchangeDetail/:id',
+      name: 'exchangeDetail',
+      component: ExchangeDetail
+    },
+    {
+      path: '/walletDetail/:id',
+      name: 'walletDetail',
+      component: WalletDetail
     }
   ]
 })

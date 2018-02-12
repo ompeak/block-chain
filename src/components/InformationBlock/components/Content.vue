@@ -13,7 +13,7 @@ export default {
     }
   },
   mounted(){
-    this.content = this.data.content;
+    this.content = this.data.summary;
   }
 };
 </script>

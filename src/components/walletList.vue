@@ -2,20 +2,28 @@
 <div class="information-detail">
  <DetailHeader title="钱包工具" type="Navigation" />
  <div class="content" v-for='item in data'>
-   <div class="lineContent" style='padding-left: .7rem;'>
+   <div class="lineContent"  style='padding-left: .7rem;position:relative;'>
+     <router-link  :to='"/walletDetail/"+item.id'>
+          <span class="walletTitle"  style='padding: 0;margin-left:5px;'>
+            <img v-bind:src='item.pic' alt="" class="topImg">
+            </span>
       <span class="walletTitle">{{item.name}}</span>
+      <span><img src="./../assets/rightArror.png" alt="" class='roarrimg'></span>
+     </router-link>
    </div>
-   <div class="lineContent lastMargin">
+   <div class="lineContent lastMargin" style='line-height: 2rem;'>
      <span class="secondContent"><img src="./../assets/doMoney.png" alt="" class='leftImg'>支持<span class="blueColor">{{item.total}}种货币</span></span>
      <span class="secondContent"><img src="./../assets/language.png" alt="" class='leftImg'>
      <span v-for="lang in item.langageArr">
-        <span>{{lang}}&nbsp;&nbsp; </span>
+        <span>{{lang}}&nbsp;&nbsp;</span>
      </span>
-      
+
      </span>
    </div>
-   <div class="lineContent lastMargin" v-for="sys in item.arr">
-     <span class="ico"><img src="./../assets/support.png" alt="" class='leftImg'>{{sys}}</span>
+   <div style='padding-left:1rem;'>
+     <span class="lineContent lastMargin ico" v-for="sys in item.arr" style='width:30% ; display: inline-block;margin:0;border-bottom:0;height:2rem;'>
+       <span style=''><img src="./../assets/support.png" alt="" class='leftImg'>{{sys}}</span>
+     </span>
      <!-- <span class="ico"><img src="./../assets/support.png" alt="" class='leftImg'>网页版</span> -->
    </div>
   </div>
@@ -41,7 +49,7 @@ export default {
    let self = this;
     let id =this.$route.params.id;
       this.allWallet();
-  
+
   },
   methods:{
     allWallet(){
@@ -52,7 +60,7 @@ export default {
         id = 'all'
       }
       axios
-        .get(`http://www.ptrcipo.com/wallet/?type=${id}&page=0&size=4` )
+        .get(`http://www.ptrcipo.com/wallet/?type=${id}&page=0&size=20` )
         .then(function(res) {
           // console.log(res.data.data);
           self.data = res.data.data.list;
@@ -61,6 +69,7 @@ export default {
                 self.data[i].total = res.data.data.list[i].fiats.length
                  let  arr=res.data.data.list[i].system.split(",");
                   self.data[i].arr = arr
+                  self.data[i].pic =`http://www.ptrcipo.com/admin/rest/exchanges/${self.data[i].id}/logo/file`
                  let  langageArr=res.data.data.list[i].language.split(",");
                   self.data[i].langageArr = langageArr
                  console.log(self.data[i] )
@@ -73,7 +82,7 @@ export default {
           console.log(error);
         });
       },
-      
+
   }
 };
 </script>
@@ -93,6 +102,11 @@ export default {
       vertical-align: middle;
           padding: .7rem;
           font-size: 1.2rem;
+          .topImg{
+               height: 2rem;
+                width: 2rem;
+                margin-left:5px;
+          }
     }
   .leftImg{
         display: inline-block;
@@ -121,6 +135,16 @@ export default {
         border-bottom: 0
       }
     }
+      .roarrimg{
+      display: inline-block;
+      vertical-align: middle;
+      height: .8rem;
+      padding: 0 .2rem;
+      margin-left: .1rem;
+      position: absolute;
+       right: 2rem;
+    top: 1.7rem;
+  }
   }
 }
 </style>

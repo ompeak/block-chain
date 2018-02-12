@@ -12,7 +12,7 @@
       <div class="dtime">{{time | formatDate}}</div>
       <div class="content">
         <Content :data='item' />
-        <Bar :id='item.id' />
+        <Bar :id='item.id' v-if="item.link || item.content"/>
       </div>
     </div>
 
